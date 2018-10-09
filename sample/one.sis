@@ -1,0 +1,5 @@
+define one
+
+function one(returns integer)
+  1
+end function 

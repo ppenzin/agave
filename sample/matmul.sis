@@ -1,0 +1,56 @@
+% MATRIX MULTIPLICATION PROGRAM
+%========================================================================
+% The "defines" statement is needed in every complete Sisal Program;
+% the "$entry=" statement is needed if the entry point isn't named "main".
+%------------------------------------------------------------------------
+define matrix_mult   % Specifies function name(s) exported from module/program
+%$entry=matrix_mult  % Specifies entry point(s) for this module/program
+
+%-----------------------------
+% Type declarations come next.
+%-----------------------------
+type One_Dim_R = array [ real ];
+type Two_Dim_R = array [ One_Dim_R ];
+
+%---------------------------------------------------------------------
+% Then come global declarations for functions imported from libraries.
+% These aren't used in the program, and are for illustration only.
+%---------------------------------------------------------------------
+global sqrt( x: real returns real );
+global sin( x: double_real returns double_real)
+
+%------------------------------------------------------------------------
+% Next come forward function declarations; these are not needed, in this
+% program, since the full function definitions are given in definition-
+% before-use order.
+%------------------------------------------------------------------------
+forward function dot_product( x, y : One_Dim_R returns real )
+
+forward function matrix_mult( x, y :  Two_Dim_R
+                              returns Two_Dim_R )
+
+%----------------------------------------
+% Finally, the full function definitions.
+%----------------------------------------
+function dot_product( x, y : One_Dim_R returns real )
+
+   for a in x dot b in y
+   returns value of sum a * b
+   end for
+
+end function % dot_product
+
+%..............................................................................
+
+function matrix_mult( x, y_transposed : Two_Dim_R
+                      returns Two_Dim_R )
+
+   for   x_row in x                % for all rows of x
+   cross y_col in y_transposed     % & all columns of y (rows of y_transposed)
+
+   returns array of dot_product(x_row, y_col)
+   end for
+
+end function % matrix_mult
+
+%..............................................................................
