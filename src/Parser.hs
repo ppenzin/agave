@@ -1,6 +1,6 @@
 module Parser(parse) where
 
-import Data.Parse.UTF8
+import Data.Text.Parse.UTF8
 import Parser.Lexer
 import Basic.Status
 
