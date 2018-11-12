@@ -1,0 +1,7 @@
+# CMake(LANG)Compiler.cmake.in  -> used by CMakeDetermine(LANG)Compiler.cmake
+# This file is used to store compiler information and is copied down into try
+# compile directories so that try compiles do not need to re-determine and test
+# the LANG
+
+set (CMAKE_Haskell_SOURCE_FILE_EXTENSIONS lhs;hs;hc)
+set (CMAKE_Haskell_COMPILER "@CMAKE_Haskell_COMPILER@")
